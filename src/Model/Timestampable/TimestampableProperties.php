@@ -18,7 +18,7 @@ namespace Knp\DoctrineBehaviors\Model\Timestampable;
  */
 trait TimestampableProperties
 {
-    protected $createdAt;
+    protected $created;
 
-    protected $updatedAt;
+    protected $updated;
 }

@@ -25,7 +25,7 @@ trait TimestampableMethods
      */
     public function getCreatedAt()
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
     /**
@@ -35,14 +35,14 @@ trait TimestampableMethods
      */
     public function getUpdatedAt()
     {
-        return $this->updatedAt;
+        return $this->updated;
     }
 
     /**
      * @param \DateTime $createdAt
      * @return $this
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreatedAt(\DateTime $created)
     {
         $this->createdAt = $createdAt;
 
