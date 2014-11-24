@@ -23,7 +23,7 @@ trait SoftDeletableMethods
      */
     public function delete()
     {
-        $this->deletedAt = new \DateTime();
+        $this->deleted = new \DateTime();
     }
 
     /**
@@ -31,7 +31,7 @@ trait SoftDeletableMethods
      */
     public function restore()
     {
-        $this->deletedAt = null;
+        $this->deleted = null;
     }
 
     /**
@@ -41,8 +41,8 @@ trait SoftDeletableMethods
      */
     public function isDeleted()
     {
-        if (null !== $this->deletedAt) {
-            return $this->deletedAt <= (new \DateTime());
+        if (null !== $this->deleted) {
+            return $this->deleted <= (new \DateTime());
         }
 
         return false;
@@ -55,7 +55,7 @@ trait SoftDeletableMethods
      */
     public function willBeDeleted(\DateTime $at = null)
     {
-        if ($this->deletedAt === null) {
+        if ($this->deleted === null) {
 
             return false;
         }
@@ -64,7 +64,7 @@ trait SoftDeletableMethods
             return true;
         }
 
-        return $this->deletedAt <= $at;
+        return $this->deleted <= $at;
     }
 
     /**
@@ -74,7 +74,7 @@ trait SoftDeletableMethods
      */
     public function getDeletedAt()
     {
-        return $this->deletedAt;
+        return $this->deleted;
     }
 
     /**
@@ -87,7 +87,7 @@ trait SoftDeletableMethods
      */
     public function setDeletedAt(\DateTime $date)
     {
-        $this->deletedAt = $date;
+        $this->deleted = $date;
 
         return $this;
     }

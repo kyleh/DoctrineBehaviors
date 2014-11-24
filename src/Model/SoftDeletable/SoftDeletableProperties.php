@@ -18,5 +18,5 @@ namespace Knp\DoctrineBehaviors\Model\SoftDeletable;
  */
 trait SoftDeletableProperties
 {
-    protected $deletedAt;
+    protected $deleted;
 }
