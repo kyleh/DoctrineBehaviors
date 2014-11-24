@@ -19,7 +19,7 @@ namespace Knp\DoctrineBehaviors\Model\Timestampable;
 trait TimestampableMethods
 {
     /**
-     * Returns createdAt value.
+     * Returns created value.
      *
      * @return \DateTime
      */
@@ -29,7 +29,7 @@ trait TimestampableMethods
     }
 
     /**
-     * Returns updatedAt value.
+     * Returns updated value.
      *
      * @return \DateTime
      */
@@ -39,36 +39,36 @@ trait TimestampableMethods
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param \DateTime $created
      * @return $this
      */
     public function setCreatedAt(\DateTime $created)
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * @param \DateTime $updatedAt
+     * @param \DateTime $updated
      * @return $this
      */
-    public function setUpdatedAt(\DateTime $updatedAt)
+    public function setUpdatedAt(\DateTime $updated)
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated = $updated;
 
         return $this;
     }
 
     /**
-     * Updates createdAt and updatedAt timestamps.
+     * Updates created and updated timestamps.
      */
     public function updateTimestamps()
     {
-        if (null === $this->createdAt) {
-            $this->createdAt = new \DateTime('now');
+        if (null === $this->created) {
+            $this->created = new \DateTime('now');
         }
 
-        $this->updatedAt = new \DateTime('now');
+        $this->updated = new \DateTime('now');
     }
 }
