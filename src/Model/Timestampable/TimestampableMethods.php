@@ -29,13 +29,13 @@ trait TimestampableMethods
     }
 
     /**
-     * Returns updated value.
+     * Returns modified value.
      *
      * @return \DateTime
      */
     public function getUpdatedAt()
     {
-        return $this->updated;
+        return $this->modified;
     }
 
     /**
@@ -50,18 +50,18 @@ trait TimestampableMethods
     }
 
     /**
-     * @param \DateTime $updated
+     * @param \DateTime $modified
      * @return $this
      */
-    public function setUpdatedAt(\DateTime $updated)
+    public function setUpdatedAt(\DateTime $modified)
     {
-        $this->updated = $updated;
+        $this->modified = $modified;
 
         return $this;
     }
 
     /**
-     * Updates created and updated timestamps.
+     * Updates created and modified timestamps.
      */
     public function updateTimestamps()
     {
@@ -69,6 +69,6 @@ trait TimestampableMethods
             $this->created = new \DateTime('now');
         }
 
-        $this->updated = new \DateTime('now');
+        $this->modified = new \DateTime('now');
     }
 }

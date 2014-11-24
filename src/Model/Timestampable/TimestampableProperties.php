@@ -20,5 +20,5 @@ trait TimestampableProperties
 {
     protected $created;
 
-    protected $updated;
+    protected $modified;
 }
