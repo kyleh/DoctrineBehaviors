@@ -56,9 +56,9 @@ class SoftDeletableSubscriber extends AbstractSubscriber
                 $entity->delete();
                 $em->persist($entity);
 
-                $uow->propertyChanged($entity, 'deletedAt', $oldValue, $entity->getDeletedAt());
+                $uow->propertyChanged($entity, 'deleted', $oldValue, $entity->getDeletedAt());
                 $uow->scheduleExtraUpdate($entity, [
-                    'deletedAt' => [$oldValue, $entity->getDeletedAt()]
+                    'deleted' => [$oldValue, $entity->getDeletedAt()]
                 ]);
             }
         }
@@ -96,9 +96,9 @@ class SoftDeletableSubscriber extends AbstractSubscriber
 
         if ($this->isSoftDeletable($classMetadata)) {
 
-            if (!$classMetadata->hasField('deletedAt')) {
+            if (!$classMetadata->hasField('deleted')) {
                 $classMetadata->mapField(array(
-                    'fieldName' => 'deletedAt',
+                    'fieldName' => 'deleted',
                     'type'      => 'datetime',
                     'nullable'  => true
                 ));

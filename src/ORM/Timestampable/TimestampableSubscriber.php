@@ -49,7 +49,7 @@ class TimestampableSubscriber extends AbstractSubscriber
                 $classMetadata->addLifecycleCallback('updateTimestamps', Events::preUpdate);
             }
 
-            foreach (array('createdAt', 'updatedAt') as $field) {
+            foreach (array('created', 'updated') as $field) {
                 if (!$classMetadata->hasField($field)) {
                     $classMetadata->mapField(array(
                         'fieldName' => $field,
